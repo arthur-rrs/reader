@@ -1,9 +1,21 @@
 var filtersOfProducts = {}
+
 const filters = {
   'pe_cap' : function(pendecy) {
     let $selectFilters = $('select[name=filters-of-products]');
-    
-    return pendecy.trim().startsWith($selectFilters.val());
+    let inputs = $selectFilters.val();
+    let inputSize = inputs.length;
+    let index = 0;
+    while (index < inputSize) {
+      let input = inputs[index];
+      if (pendecy.trim().startsWith(input)) {
+
+        return true;
+      }
+      index++;      
+    }   
+
+    return false;
   },
   'vem_recife': function(pendency) {
     
@@ -73,8 +85,10 @@ function refreshFilters(event)
   $selectFilters.empty();
   let productSelected = filtersOfProducts[$selectProducts.val()];
   let sizeOfFilters = productSelected.length;
+  let $option = null;
   for (let index = sizeOfFilters - 1; index > -1; index--) {
-    $selectFilters.append('<option value="' + productSelected[index]+ '">' + productSelected[index] + '</option>');
+    $option = $('<option value="' + productSelected[index]+ '">' + productSelected[index] + '</option>');
+    $selectFilters.append($option);
   }
 }
 
