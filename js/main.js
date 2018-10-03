@@ -59,7 +59,7 @@ function loadFilters(event)
       
       return acumulator;
     }, []);
-    
+    datesOfPECap.push('PE Cap ');
     return datesOfPECap;
   })();
   filtersOfProducts['recargas'] = ['RECARGAS'];
