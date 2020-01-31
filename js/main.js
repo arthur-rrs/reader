@@ -17,6 +17,9 @@ const filters = {
 
     return false;
   },
+  'lot': function (pendecy) {
+    return pendecy.trim().startsWith('LOT');
+  },
   'vem_recife': function(pendency) {
     
     return pendency.trim().startsWith('VEM RECIFE');
@@ -76,6 +79,7 @@ function loadFilters(event)
   })();
   filtersOfProducts['recargas'] = ['RECARGAS'];
   filtersOfProducts['vem_recife'] = ['VEM Recife'];
+  filtersOfProducts['lot'] = ['Lot da Sorte'];
 }
 
 function refreshFilters(event) 
