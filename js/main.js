@@ -103,7 +103,7 @@ function runFilter(event)
   let filter = filters[productSelected];
   let pendenciesCache = pendencies;
   for (let index = 0; index < pendenciesCache.length; index++) {
-    pendenciesCache[index]['products'] =  pendencies[index].pendecy.split(/<br[ ]?[\/]?>/gim).map(function(pendency) {
+    pendenciesCache[index]['products'] =  pendencies[index].pendecy.split(/<br[ ]?[\/]?>|(R\$ 0)/gim).map(function(pendency) {
       return pendency.trim();
     }).filter(filter) ;
   }
